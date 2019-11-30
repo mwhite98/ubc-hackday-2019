@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+
+import { Home } from './Home';
+import { Thread } from './Thread';
 
 class App extends Component {
 state = {
@@ -26,14 +30,19 @@ state = {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        {/*Render the newly fetched data inside of this.state.data */}
-        <p className="App-intro">{this.state.data}</p>
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">This is the header</h1>
+          </header>
+          {/*Render the newly fetched data inside of this.state.data */}
+          <p className="App-intro">{this.state.data}</p>
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/thread" component={Thread} />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
