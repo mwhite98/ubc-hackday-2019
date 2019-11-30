@@ -6,13 +6,15 @@
                 "title": "sample_title_1",
                 "location": "location",
                 "time": "2019",
-                "thread_id": "thread_id"
+                "thread_id": "thread_id",
+                "tags": [],
             },
             {
                 "title": "sample_title_2",
                 "location": "location",
                 "time": "2019",
-                "thread_id": "thread_id"
+                "thread_id": "thread_id",
+                "tags": ["projects", "javascript questions"],
             }
         ],
         "comments": [
@@ -20,13 +22,15 @@
                 "thread_id": "thread_id_1",
                 "user_name": "user_name",
                 "message": "comment message",
-                "mentor_status": true
+                "mentor_status": true,
+                "tags": [],
             },
             {
                 "thread_id": "thread_id_2",
                 "user_name": "user_name",
                 "message": "comment message",
-                "mentor_status": false
+                "mentor_status": false,
+                "tags": ["career advice"],
             }
         ],
         "mentors": [
