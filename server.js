@@ -19,20 +19,22 @@ app.get('/express_backend', (req, res) => {
 });
 
 app.get('/get_thread' , (req, res) => {
-	// event_id
+
 	let thread_id = req.body.thread_id;
-	pool.query('SELECT * FROM `threads` WHERE thread_id = ?', [1], function(err, rows) {
+	pool.query('SELECT * FROM `threads` WHERE thread_id = ?', [thread_id], function(err, rows) {
         if (err) {
             console.log(err.message);
             return;
-        }
+		}
+		
         if (rows.length !== 0) {
+			console.log("==== get_thread response ====", rows[0]);
 			res.send({
-				"event": rows,
+				"thread": rows[0],
 			});
 		} else {
             res.send({
-				"error": "Failed to get thread",
+				"error": "Failed to get single thread",
 			});
 		}
 		
@@ -40,20 +42,22 @@ app.get('/get_thread' , (req, res) => {
 });
 
 app.get('/get_threads' , (req, res) => {
-	// event_id
+
 	let thread_ids = req.body.thread_ids;
-	pool.query('SELECT * FROM `threads` WHERE thread_id = ?', thread_ids, function(err, rows) {
+	pool.query('SELECT * FROM `threads` WHERE thread_id IN (?)', [thread_ids], function(err, rows) {
         if (err) {
             console.log(err.message);
             return;
         }
         if (rows.length !== 0) {
+			// console.log("==== get_threads response ====", rows);
 			let threadNames = [];
-			for (let thread_name in rows) {
+			for (let thread of rows) {
 				threadNames.push({
-					"title": thread_name
+					"title": thread.thread_title
 				});
 			}
+			console.log("==== threadNames ====", threadNames);
 			res.send({
 				"threads": threadNames
 			});
@@ -65,7 +69,3 @@ app.get('/get_threads' , (req, res) => {
 		
 	});
 });
-
-// get_threads
-// get_thread
-
