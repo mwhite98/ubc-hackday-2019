@@ -1,0 +1,23 @@
+{
+  "name": "ubc-hackday-2019",
+  "version": "1.0.0",
+  "description": "hack day app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "proxy": "http://localhost:5000/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwhite98/ubc-hackday-2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwhite98/ubc-hackday-2019/issues"
+  },
+  "homepage": "https://github.com/mwhite98/ubc-hackday-2019#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
