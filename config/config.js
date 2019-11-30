@@ -2,11 +2,10 @@
 
 
 const env = process.env.NODE_ENV; // 'dev' or 'test'
-const pool = require('./config/db')
 
 const dev = {
     app: {
-        port: 3000,
+        port: 5000,
         secret: 'secret',
     },
     db: {

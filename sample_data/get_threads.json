@@ -1,7 +1,10 @@
 {
     "threads": [
-        1,
-        2,
-        3
+        {
+            "title": "title_1"
+        },
+        {
+            "title": "title_2"
+        }
     ]
 }
