@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//@import url("https://use.typekit.net/wok7cdm.css");
 
 import Home from './Home';
-import { Thread } from './Thread';
+import Thread from './Thread';
 
 // mdbreact
 import "@fortawesome/fontawesome-free/css/all.min.css";
