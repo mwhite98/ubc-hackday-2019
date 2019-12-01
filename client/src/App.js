@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//@import url("https://use.typekit.net/wok7cdm.css");
 
 import { Home } from './Home';
-import { Thread } from './Thread';
+import Thread from './Thread';
 
 class App extends Component {
 state = {
@@ -32,8 +34,8 @@ state = {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">This is the header</h1>
+          <header>
+            <h1>This is the header</h1>
           </header>
           {/*Render the newly fetched data inside of this.state.data */}
           <p className="App-intro">{this.state.data}</p>

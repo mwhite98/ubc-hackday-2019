@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/mwhite98/ubc-hackday-2019#readme",
   "devDependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-router-dom": "^5.1.2"
   }
 }

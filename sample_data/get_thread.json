@@ -1,0 +1,31 @@
+{
+    "thread": {
+        "thread_title": "thread_title",
+        "events": [
+            {
+                "title": "sample_title_1",
+                "location": "location",
+                "time": "2019",
+                "thread_id": "thread_id"
+            },
+            {
+                "title": "sample_title_2",
+                "location": "location",
+                "time": "2019",
+                "thread_id": "thread_id"
+            }
+        ],
+        "comments": [
+            {
+                "thread_id": "thread_id_1",
+                "user_name": "user_name",
+                "message": "comment message"
+            },
+            {
+                "thread_id": "thread_id_2",
+                "user_name": "user_name",
+                "message": "comment message"
+            }
+        ]
+    }
+}
