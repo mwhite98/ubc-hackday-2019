@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+.thread-card{
+  vertical-align: text-bottom !important;
+  background-color: #FFCAA4 !important;
+}
+.event-icon{
+  width: 10%;
+}
+
+/* .thread-card-title{
+  overflow: hidden;
+} */

@@ -35,12 +35,22 @@ class Home extends React.Component {
 
     async getTaggedThreads(tags) {
         // do fetch threads
-        const response = await fetch('/get-threads', tags);
+        const options = {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "thread_tags": tags
+            })
+        }
+        const response = await fetch('/get-threads', options);
         const body = await response.json();
+        console.log('====', body);
         if (response.status !== 200) {
             throw Error(body.message)
         }
-        const threads = body.map(thread => {
+        const threads = body.threads.map(thread => {
             return thread;
         });
         await this.setState({...this.state, threads});
@@ -59,16 +69,26 @@ class Home extends React.Component {
     render() {
         const { props, state } = this;
         const threadCards = state.threads.map((thread, index) => {
+            // const threadTags = '';
+            // console.log(thread);
+            // console.log(thread.tags);
+            // thread.tags.map((tag, index) => {
+            //     if (index !== 0) {
+            //         threadTags = threadTags + ' ,' + tag;
+            //     } else {
+            //         threadTags = tag;
+            //     }
+            // });
             return (
-                <MDBCard className="thread-card d-inline-block m-3" style={{ width: "15rem" }} >
+                <MDBCard className="thread-card d-inline-block m-3" style={{ width: "15rem", height: "15rem" }} >
                     <MDBCardBody>
-                        <MDBCardTitle>{thread.title}</MDBCardTitle>
+                        <MDBCardTitle className='thread-card-title'>{thread.title}</MDBCardTitle>
                         <MDBCardText>
                             {3 + index} <Event className="event-icon" />
                             <br />
                             {Math.floor((12 + index) / 2)} <Avatar className="avatar-icon" />
                             <br />
-                            tags: {thread.tag}
+                            tags: {thread.tags}
                         </MDBCardText>
                         <MDBBtn size="sm" href="#">Go</MDBBtn>
                     </MDBCardBody>
@@ -76,7 +96,7 @@ class Home extends React.Component {
             );
         });
         return (
-            <div>
+            <div className="p-4 justify-content-center">
 
                 <MDBRow className="p-4 pt-4">
                     <MDBCol sm="3">

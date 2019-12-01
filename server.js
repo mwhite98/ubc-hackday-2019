@@ -18,7 +18,7 @@ app.get('/express_backend', (req, res) => {
   	res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/get-thread' , async (req, res) => {
+app.post('/get-thread' , async (req, res) => {
 
 	let thread_id = req.body.thread_id;
 	let mentorNames = [
@@ -98,8 +98,8 @@ app.get('/get-thread' , async (req, res) => {
 
 
 // request body has array of tags (string) passed in and if array is empty, just return all threads sorted by time
-app.get('/get-threads' , (req, res) => {
-
+app.post('/get-threads' , (req, res) => {
+	console.log('get-threads called');
 	let thread_tags = req.body.thread_tags;
 	console.log(thread_tags);
 	if (thread_tags.length !== 0) {
@@ -113,7 +113,8 @@ app.get('/get-threads' , (req, res) => {
 				let threadNames = [];
 				for (let thread of rows) {
 					threadNames.push({
-						"title": thread.thread_title
+						"title": thread.thread_title,
+						"tags": thread.thread_tag
 					});
 				}
 				// console.log("==== threadNames ====", threadNames);
@@ -141,7 +142,8 @@ app.get('/get-threads' , (req, res) => {
 				let threadNames = [];
 				for (let thread of rows) {
 					threadNames.push({
-						"title": thread.thread_title
+						"title": thread.thread_title,
+						"tags": thread.thread_tag
 					});
 				}
 				// console.log("==== threadNames ====", threadNames);
