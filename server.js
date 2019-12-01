@@ -102,31 +102,62 @@ app.get('/get_threads' , (req, res) => {
 
 	let thread_tags = req.body.thread_tags;
 	console.log(thread_tags);
-	pool.query('SELECT * FROM `threads` WHERE thread_tag IN (?)', [thread_tags], function(err, rows) {
-        if (err) {
-            console.log(err.message);
-            return;
-        }
-        if (rows.length !== 0) {
-			// console.log("==== get_threads response ====", rows);
-			let threadNames = [];
-			for (let thread of rows) {
-				threadNames.push({
-					"title": thread.thread_title
+	if (thread_tags.length !== 0) {
+		pool.query('SELECT * FROM `threads` WHERE thread_tag IN (?)', [thread_tags], function(err, rows) {
+			if (err) {
+				console.log(err.message);
+				return;
+			}
+			if (rows.length !== 0) {
+				// console.log("==== get_threads response ====", rows);
+				let threadNames = [];
+				for (let thread of rows) {
+					threadNames.push({
+						"title": thread.thread_title
+					});
+				}
+				// console.log("==== threadNames ====", threadNames);
+				const response = {
+					"threads": threadNames
+				};
+				console.log("=== RESPONSE ===", response);
+				res.send(response);
+			} else {
+				console.log("Did not find any threads");
+				res.send({
+					"error": "Failed to get threads",
 				});
 			}
-			// console.log("==== threadNames ====", threadNames);
-			const response = {
-				"threads": threadNames
-			};
-			console.log("=== RESPONSE ===", response);
-			res.send(response);
-		} else {
-			console.log("Did not find any threads");
-            res.send({
-				"error": "Failed to get threads",
-			});
-		}
-		
-	});
+			
+		});
+	} else {
+		pool.query('SELECT * FROM `threads` ORDER BY time DESC', [thread_tags], function(err, rows) {
+			if (err) {
+				console.log(err.message);
+				return;
+			}
+			if (rows.length !== 0) {
+				// console.log("==== get_threads response ====", rows);
+				let threadNames = [];
+				for (let thread of rows) {
+					threadNames.push({
+						"title": thread.thread_title
+					});
+				}
+				// console.log("==== threadNames ====", threadNames);
+				const response = {
+					"threads": threadNames
+				};
+				console.log("=== RESPONSE ===", response);
+				res.send(response);
+			} else {
+				console.log("Did not find any threads");
+				res.send({
+					"error": "Failed to get threads",
+				});
+			}
+			
+		});
+	}
+	
 });
