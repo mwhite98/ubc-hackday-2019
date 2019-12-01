@@ -1,18 +1,18 @@
 export default
 {
     "thread": {
-        "thread_title": "thread_title",
+        "thread_title": "Interviews as a women of color.",
         "events": [
             {
-                "title": "sample_title_1",
-                "location": "location",
-                "time": "2019",
+                "title": "Interview Workshop",
+                "location": "ICICS 015",
+                "time": "December 2, 2019",
                 "thread_id": "thread_id"
             },
             {
-                "title": "sample_title_2",
-                "location": "location",
-                "time": "2019",
+                "title": "cmd-f",
+                "location": "UBC",
+                "time": "TBA",
                 "thread_id": "thread_id"
             }
         ],
@@ -31,8 +31,8 @@ export default
             }
         ],
         "mentors": [
-            "name1",
-            "name2"
+            "Cinda (Faculty, UBC)",
+            "Chris (Industry, TTT)"
         ]
     }
 }

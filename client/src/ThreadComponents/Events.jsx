@@ -6,13 +6,15 @@ import {
   EventName,
 } from './Styles';
 import testData from './test_data';
+import '../App.css';
+
 
 const renderEvents = () => {
   const { events } = testData.thread;
   return events.map(event => {
     return (
       <div>
-      <Event>
+      <Event className="p-2">
         <div>
           <EventName>
             {event.title}
@@ -35,7 +37,7 @@ const EventPanel = (props) => {
 
   return (
 
-      <EventBox>
+      <EventBox className="p-2">
         <Title>
           Upcoming Events
         </Title>

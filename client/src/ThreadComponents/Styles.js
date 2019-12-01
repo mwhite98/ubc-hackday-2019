@@ -2,7 +2,7 @@
 import styled from '@emotion/styled'
 
 const COLOURS = {
-  white: "#F5F5F5",
+  white: "#FFCAA4",
   black: "#292929",
   blue: "#9EC6FF",
   pink: "#FFCAA4",
@@ -48,6 +48,7 @@ export const MentorTitle = styled.div`
 export const MentorBox = styled.div`
   background-color: ${COLOURS.white};
   height: 100%;
+  border-radius: 4px;
 `;
 
 // Event Specific Styles
@@ -90,10 +91,17 @@ export const Name = styled.p`
   font-size: 24px;
   color: black;
   text-align: left;
-  padding: 2px, 2px, 2px, 2px;
   display: inline;
-  float: left;
+  padding-left: 5px;
 `;
+// export const Name = styled.p`
+//   font-size: 24px;
+//   color: black;
+//   text-align: left;
+//   // padding: 2px, 2px, 2px, 2px;
+//   display: inline;
+//   float: left;
+// `;
 
 export const Badge = styled.a`
   background-color: ${COLOURS.pink};

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MDBBadge, MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdbreact';
 import { Multiselect } from 'multiselect-react-dropdown';
-
-
+import { useHistory } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
 // images
 import { ReactComponent as Event } from './event.svg';
 import { ReactComponent as Avatar } from './avatar.svg'
@@ -21,6 +21,7 @@ class Home extends React.Component {
         this.onSelect = this.onSelect.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.getTaggedThreads = this.getTaggedThreads.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     async componentDidMount() {
@@ -31,6 +32,11 @@ class Home extends React.Component {
 
         // fetch threads
         await this.getTaggedThreads([]);
+    }
+
+    handleClick() {
+        // let history = useHistory();
+        this.props.history.push("/thread");
     }
 
     async getTaggedThreads(tags) {
@@ -90,7 +96,7 @@ class Home extends React.Component {
                             <br />
                             tags: {thread.tags}
                         </MDBCardText>
-                        <MDBBtn size="sm" href="#" aria-label='Go to thread.'>>Go</MDBBtn>
+                        <MDBBtn size="sm" href="#" onClick={this.handleClick}>Go</MDBBtn>
                     </MDBCardBody>
                 </MDBCard>
             );
@@ -123,4 +129,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default withRouter(Home)
