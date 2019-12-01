@@ -6,6 +6,7 @@ import {
 } from './Styles';
 import testData from './test_data';
 import AvatarIcon from './avataricon.svg';
+import { ReactComponent as Avatar } from './avataricon.svg'
 
 const renderMentors = () => {
   const { mentors } = testData.thread;
@@ -15,9 +16,7 @@ const renderMentors = () => {
           <Name>
             {mentor}
           </Name>
-          <svg>
-            AvatarIcon
-          </svg>
+          <Avatar />
       </div>
     );
   })
