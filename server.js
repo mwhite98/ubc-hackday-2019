@@ -77,7 +77,8 @@ app.get('/get_thread' , async (req, res) => {
 							"mentors": mentorNames
 						}
 					};
-
+					
+					console.log("=== RESPONSE ===", response);
 					res.send(response);
 
 				});
@@ -114,10 +115,12 @@ app.get('/get_threads' , (req, res) => {
 					"title": thread.thread_title
 				});
 			}
-			console.log("==== threadNames ====", threadNames);
-			res.send({
+			// console.log("==== threadNames ====", threadNames);
+			const response = {
 				"threads": threadNames
-			});
+			};
+			console.log("=== RESPONSE ===", response);
+			res.send(response);
 		} else {
 			console.log("Did not find any threads");
             res.send({
