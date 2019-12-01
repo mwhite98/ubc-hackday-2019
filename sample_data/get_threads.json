@@ -1,0 +1,12 @@
+{
+    "threads": [
+        {
+            "title": "title_1",
+            "tags": ["projects", "javascript questions"],
+        },
+        {
+            "title": "title_2",
+            "tags": ["career advice"],
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "comments": [
+        {
+            "user": "user_1",
+            "message": "message_1"
+        },
+        {
+            "user": "user_2",
+            "message": "message_2"
+        }
+    ]
+}
