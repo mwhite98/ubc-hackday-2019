@@ -24,7 +24,8 @@ const FONT_BODY = {
 
 // Global Styles
 export const Title = styled.div`
-  font-size: 32px;
+  padding: 20px, 20px, 20px, 20px;
+  font-size: ${FONT_TITLE.sizeBig};
   color: ${COLOURS.white};
   font-family: ${FONT_TITLE.family}, "sans-serif";
   font-weight: ${FONT_TITLE.weight};
@@ -33,6 +34,7 @@ export const Title = styled.div`
 `;
 
 export const MentorTitle = styled.div`
+  padding: 10px, 10px, 10px, 10px;
   font-size: 32px;
   color: ${COLOURS.black};
   font-family: ${FONT_TITLE.family}, "sans-serif";
