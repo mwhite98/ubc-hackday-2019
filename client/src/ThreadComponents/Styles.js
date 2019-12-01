@@ -34,11 +34,18 @@ export const Title = styled.div`
 
 export const MentorTitle = styled.div`
   font-size: 32px;
-  color: ${COLOURS.white};
+  color: ${COLOURS.black};
   font-family: ${FONT_TITLE.family}, "sans-serif";
   font-weight: ${FONT_TITLE.weight};
   font-style: ${FONT_TITLE.style};
   font-size: ${FONT_TITLE.sizeBig};
+`;
+
+// Mentor Specific Styles
+
+export const MentorBox = styled.div`
+  background-color: ${COLOURS.white};
+  height: 100%;
 `;
 
 // Event Specific Styles
@@ -46,10 +53,6 @@ export const MentorTitle = styled.div`
 export const EventBox = styled.div`
   background-color: ${COLOURS.black};
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 0;
 `;
 
 export const Event = styled.div`
@@ -57,6 +60,19 @@ export const Event = styled.div`
   font-family: ${FONT_BODY.family}, "sans-serif";
   font-weight: ${FONT_BODY.weight};
   font-style: ${FONT_BODY.style};
+  width: 90%;
+  border-radius: 4px;
+  margin: auto;
+`;
+
+export const EventName = styled.p`
+  font-size: 24px;
+  color: black;
+  text-align: centre;
+  padding: 10px, 10px, 10px, 10px;
+  margin: 10px, 10px, 10px, 10px;
+  display: inline;
+  float: left;
 `;
 
 // Comment Specific Styles
@@ -72,8 +88,7 @@ export const Name = styled.p`
   font-size: 24px;
   color: black;
   text-align: left;
-  padding: 10px, 10px, 10px, 10px;
-  margin: 10px, 10px, 10px, 10px;
+  padding: 2px, 2px, 2px, 2px;
   display: inline;
   float: left;
 `;
@@ -83,13 +98,11 @@ export const Badge = styled.a`
   border-radius: 4px;
   color: ${COLOURS.black};
   float: right;
-  padding: 20px, 20px, 20px, 20px;
-  margin: 20px, 20px, 20px, 20px;
+  padding: 2px, 2px, 2px, 2px;
 `;
 
 export const Comment = styled.p`
   font-size: 16px;
   text-align: left;
-  padding: 10px, 10px, 10px, 10px;
-  margin: 10px, 10px, 10px, 10px;
+  padding: 2px, 2px, 2px, 2px;
 `;

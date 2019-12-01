@@ -3,7 +3,7 @@ import {
   Title,
   EventBox,
   Event,
-  Name,
+  EventName,
 } from './Styles';
 import testData from './test_data';
 
@@ -11,15 +11,22 @@ const renderEvents = () => {
   const { events } = testData.thread;
   return events.map(event => {
     return (
+      <div>
       <Event>
         <div>
-          <Name>
+          <EventName>
             {event.title}
-          </Name>
+          </EventName>
+          <br />
+          <br />
+          <br />
         </div>
         {event.location}
+        <br />
         {event.time}
       </Event>
+      <br />
+      </div>
     );
   })
 }

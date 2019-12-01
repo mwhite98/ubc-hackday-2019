@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   MentorTitle,
-  EventBox,
-  Event,
+  MentorBox,
   Name,
 } from './Styles';
 import testData from './test_data';
@@ -27,14 +26,14 @@ const renderMentors = () => {
 const TopBar = (props) => {
 
   return (
-    <div>
+    <MentorBox>
       <div>
         <MentorTitle>
           Mentors
         </MentorTitle>
       </div>
       {renderMentors()}
-    </div>
+    </MentorBox>
   );
 }
 

@@ -37,29 +37,4 @@ class Thread extends Component {
   }
 }
 
-// class Thread extends Component {
-
-//   render () {
-//     return (
-//       <div>
-//       <Container>
-//         <Row>
-//         <Col sm={9} md={9} lg={9}>
-//           <Row>
-//             <TopBar />
-//           </Row>
-//           <Row>
-//             <ThreadBox />
-//           </Row>
-//         </Col>
-//         <Col sm md lg={3}>
-//           <EventPanel />
-//         </Col>
-//         </Row>
-//       </Container>
-//       </div>
-//     );
-//   }
-// }
-
 export default Thread;
