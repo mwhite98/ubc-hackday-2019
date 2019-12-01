@@ -18,7 +18,7 @@ app.get('/express_backend', (req, res) => {
   	res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/get_thread' , async (req, res) => {
+app.get('/get-thread' , async (req, res) => {
 
 	let thread_id = req.body.thread_id;
 	let mentorNames = [
@@ -38,7 +38,7 @@ app.get('/get_thread' , async (req, res) => {
 		console.log("==== getting threads ==== ")
 
         if (rows.length !== 0) {
-			console.log("==== get_thread response ====", rows);
+			console.log("==== /get-thread response ====", rows);
 			let thread = rows[0];
 			// TODO: need to implement 
 			// for (let mentor in thread.mentor_names) {
@@ -98,12 +98,12 @@ app.get('/get_thread' , async (req, res) => {
 
 
 // request body has array of tags (string) passed in and if array is empty, just return all threads sorted by time
-app.get('/get_threads' , (req, res) => {
+app.get('/get-threads' , (req, res) => {
 
 	let thread_tags = req.body.thread_tags;
 	console.log(thread_tags);
 	if (thread_tags.length !== 0) {
-		pool.query('SELECT * FROM `threads` WHERE thread_tag IN (?)', [thread_tags], function(err, rows) {
+		pool.query('SELECT * FROM `threads` WHERE thread_tag IN (?) ORDER BY time DESC', [thread_tags], function(err, rows) {
 			if (err) {
 				console.log(err.message);
 				return;
