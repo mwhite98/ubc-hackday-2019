@@ -2,11 +2,11 @@
     "threads": [
         {
             "title": "title_1",
-            "tag": "tag_1"
+            "tags": ["projects", "javascript questions"],
         },
         {
             "title": "title_2",
-            "tag": "tag_2"
+            "tags": ["career advice"],
         }
     ]
 }
