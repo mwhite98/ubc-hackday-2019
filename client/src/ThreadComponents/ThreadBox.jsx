@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
+import '../App.css';
 import {
   CommentBox,
   Name,
@@ -28,7 +29,7 @@ const renderComments = () => {
   return comments.map(comment => {
     return (
       <div>
-        <Card style={{ width: '90%' }}>
+        <Card style={{ width: '90%' }} className="p-1">
           <Card.Body>
             <div>
               <Name>
@@ -36,8 +37,6 @@ const renderComments = () => {
               </Name>
               {mentorBadge(comment.mentor_status)}
             </div>
-            <br />
-            <br />
             <br />
             <Comment>
               {comment.message}
@@ -54,8 +53,8 @@ const ThreadBox = (props) => {
   const { comments } = testData.thread;
 
   return (
-    <div>
-      <Col>
+    <div className="thread-box">
+      <Col className="p-2">
         <MentorTitle>
           {testData.thread.thread_title}
         </MentorTitle>

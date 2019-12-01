@@ -6,13 +6,14 @@ import Card from 'react-bootstrap/Card'
 import {
   MentorTitle,
 } from './Styles';
+import '../App.css';
 
 class CommentForm extends Component {
 
   render() {
     return (
       <Card>
-        <Form style={{ width: '90%', margin: 'auto' }}>
+        <Form style={{ width: '90%', margin: 'auto' }} className="p-2">
           <MentorTitle>
             Join the Conversation
         </MentorTitle>

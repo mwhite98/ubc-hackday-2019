@@ -38,8 +38,8 @@ state = {
   render() {
     return (
       <Router>
-  
-          <div>
+          <h1 className="p-4"> MentrMatchr</h1>
+          <div className="bg-main">
             <Route exact path="/" component={Home} />
             <Route exact path="/thread" component={Thread} />
           </div>
