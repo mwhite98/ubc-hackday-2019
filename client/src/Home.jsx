@@ -4,8 +4,8 @@ import { Multiselect } from 'multiselect-react-dropdown';
 
 
 // images
-import {ReactComponent as Event} from './event.svg';
-import {ReactComponent as Avatar} from './avatar.svg'
+import { ReactComponent as Event } from './event.svg';
+import { ReactComponent as Avatar } from './avatar.svg'
 
 // css
 import './App.css';
@@ -20,31 +20,40 @@ class Home extends React.Component {
         };
         this.onSelect = this.onSelect.bind(this);
         this.onRemove = this.onRemove.bind(this);
+        this.getTaggedThreads = this.getTaggedThreads.bind(this);
     }
 
     async componentDidMount() {
-        const threads = [];
-        threads.push({title: 'haha', tag: 'career advice'});
-        threads.push({title: 'hehe', tag: 'project'});
-        threads.push({title: 'hoho', tag: 'javascript'});
+        // const threads = [];
+        // threads.push({title: 'haha', tag: 'career advice'});
+        // threads.push({title: 'hehe', tag: 'project'});
+        // threads.push({title: 'hoho', tag: 'javascript'});
 
         // fetch threads
-        await this.setState({ ...this.state, threads });
+        await this.getTaggedThreads([]);
     }
 
     async getTaggedThreads(tags) {
-        // do fetch threads again
-
+        // do fetch threads
+        const response = await fetch('/get_threads', tags);
+        const body = await response.json();
+        if (response.status !== 200) {
+            throw Error(body.message)
+        }
+        const threads = body.map(thread => {
+            return thread;
+        });
+        await this.setState({...this.state, threads});
     }
 
     async onSelect(optionsList, selectedItem) {
-        const threads = await this.getTaggedThreads(optionsList);
-        await this.setState({ ...this.state, threads });
+        await this.getTaggedThreads(optionsList);
+        // await this.setState({ ...this.state, threads });
     }
 
     async onRemove(optionsList, selectedItem) {
-        const threads = await this.getTaggedThreads(optionsList);
-        await this.setState({ ...this.state, threads })
+        await this.getTaggedThreads(optionsList);
+        // await this.setState({ ...this.state, threads })
     }
 
     render() {
@@ -55,10 +64,10 @@ class Home extends React.Component {
                     <MDBCardBody>
                         <MDBCardTitle>{thread.title}</MDBCardTitle>
                         <MDBCardText>
-                            {3 + index} <Event className="event-icon"/>
-                            <br/>
-                            { Math.floor((12 + index)/2)} <Avatar className="avatar-icon"/>
-                            <br/>
+                            {3 + index} <Event className="event-icon" />
+                            <br />
+                            {Math.floor((12 + index) / 2)} <Avatar className="avatar-icon" />
+                            <br />
                             tags: {thread.tag}
                         </MDBCardText>
                         <MDBBtn size="sm" href="#">Go</MDBBtn>
