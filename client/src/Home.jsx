@@ -35,7 +35,7 @@ class Home extends React.Component {
 
     async getTaggedThreads(tags) {
         // do fetch threads
-        const response = await fetch('/get_threads', tags);
+        const response = await fetch('/get-threads', tags);
         const body = await response.json();
         if (response.status !== 200) {
             throw Error(body.message)
