@@ -80,17 +80,17 @@ class Home extends React.Component {
             //     }
             // });
             return (
-                <MDBCard className="thread-card d-inline-block m-3" style={{ width: "15rem", height: "15rem" }} >
+                <MDBCard tabindex={index + 2} className="thread-card d-inline-block m-3" style={{ width: "15rem", height: "15rem" }} >
                     <MDBCardBody>
                         <MDBCardTitle className='thread-card-title'>{thread.title}</MDBCardTitle>
                         <MDBCardText>
-                            {3 + index} <Event className="event-icon" />
+                            {3 + index} <Event className="event-icon" alt="Event icon." />
                             <br />
-                            {Math.floor((12 + index) / 2)} <Avatar className="avatar-icon" />
+                            {Math.floor((12 + index) / 2)} <Avatar className="avatar-icon" alt="Avatar icon." />
                             <br />
                             tags: {thread.tags}
                         </MDBCardText>
-                        <MDBBtn size="sm" href="#">Go</MDBBtn>
+                        <MDBBtn size="sm" href="#" aria-label='Go to thread.'>>Go</MDBBtn>
                     </MDBCardBody>
                 </MDBCard>
             );
@@ -104,6 +104,7 @@ class Home extends React.Component {
                     </MDBCol>
                     <MDBCol>
                         <Multiselect
+                            tabindex={1}
                             options={this.state.tagNames} // Options to display in the dropdown
                             isObject={false}
                             showCheckbox

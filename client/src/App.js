@@ -38,7 +38,6 @@ state = {
   render() {
     return (
       <Router>
-  
           <div>
             <Route exact path="/" component={Home} />
             <Route exact path="/thread" component={Thread} />
