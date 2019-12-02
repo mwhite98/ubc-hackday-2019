@@ -86,7 +86,7 @@ class Home extends React.Component {
             //     }
             // });
             return (
-                <MDBCard tabindex={index + 2} className="thread-card d-inline-block m-3" style={{ width: "15rem", height: "15rem" }} >
+                <MDBCard tabIndex={index + 2} className="thread-card d-inline-block m-3" style={{ width: "15rem", height: "15rem" }} >
                     <MDBCardBody>
                         <MDBCardTitle className='thread-card-title'>{thread.title}</MDBCardTitle>
                         <MDBCardText>
